@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resumo Capítulo 4 - JavaScript</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+    <h1 class="titulo">Tornando Páginas Web Interativas com JavaScript - RESUMO</h1>
+    
+    <p>
+        O capítulo apresenta os fundamentos essenciais do JavaScript, a linguagem responsável por adicionar comportamento dinâmico e interatividade às páginas web. São abordados conceitos como variáveis, constantes, tipos de dados, operadores, estruturas de controle, funções, tratamento de erros, objetos e arrays.
+    </p>
+    
+    <p>
+        Os principais tópicos discutidos incluem:
+    </p>
+
+    <ul>
+        <li><b>Inclusão do JavaScript:</b> Formas de integrar código JavaScript em páginas HTML, incluindo arquivos externos (<code>.js</code>) e código direto no HTML.</li>
+        <li><b>Variáveis e Constantes:</b> Armazenamento de dados com <code>let</code> (variáveis) e <code>const</code> (constantes), além dos tipos de dados disponíveis.</li>
+        <li><b>Operadores:</b> Operadores aritméticos, lógicos, de comparação, de concatenação e outros disponíveis na linguagem.</li>
+        <li><b>Estruturas de Controle:</b> Controle do fluxo do programa por meio de condicionais (<code>if/else</code>, <code>switch</code>) e laços de repetição (<code>for</code>, <code>while</code>, <code>do-while</code>).</li>
+        <li><b>Funções:</b> Blocos de código reutilizáveis, definidos via declaração, expressão ou arrow functions, com parâmetros e valores de retorno.</li>
+        <li><b>Objetos e Arrays:</b> Agrupamento de dados e listas de valores para organizar informações de forma eficiente.</li>
+    </ul>
+
+    <!-- DEMO INTERATIVA -->
+    <div class="demo-box">
+        <h3>🖥️ Demo: Console JavaScript</h3>
+        <p>Clique nos botões abaixo para ver conceitos do capítulo em ação:</p>
+        <div class="btn-grupo">
+            <button onclick="demoVariaveis()">Variáveis</button>
+            <button onclick="demoCondicional()">Condicional</button>
+            <button onclick="demoLaco()">Laço for</button>
+            <button onclick="demoFuncao()">Função</button>
+            <button onclick="demoArray()">Array</button>
+            <button onclick="limparConsole()">Limpar</button>
+        </div>
+        <div id="console-output"></div>
+    </div>
+
+    <h2>4.1 Introdução</h2>
+
+    <h3>4.1.1 Incluindo JavaScript</h3>
+    <p>
+        O código JavaScript pode ser incluído em uma página web de diferentes formas. A abordagem recomendada é armazená-lo em um arquivo separado com extensão <code>.js</code> e referenciá-lo no HTML com a tag <code>&lt;script&gt;</code> e o atributo <code>src</code>.
+    </p>
+
+    <h4>1º Arquivo JavaScript Externo (recomendado)</h4>
+    <p>
+        &lt;script src="scripts/main.js"&gt;&lt;/script&gt;
+    </p>
+
+    <h4>2º JavaScript Direto no HTML</h4>
+    <p>
+        &lt;script&gt;<br>
+        &nbsp;&nbsp;alert('Hello World');<br>
+        &lt;/script&gt;
+    </p>
+
+    <p>
+        Também é possível usar o elemento <code>&lt;noscript&gt;</code> para exibir conteúdo alternativo quando o JavaScript está desabilitado no navegador.
+    </p>
+
+    <h3>4.1.2 Exibindo Caixas de Diálogo</h3>
+    <p>
+        O JavaScript oferece três funções padrão para caixas de diálogo:
+    </p>
+    <ul class="ul_01">
+        <li><b>alert()</b> — exibe uma caixa de dica simples</li>
+        <li><b>confirm()</b> — exibe uma caixa de confirmação com dois botões (OK e Cancelar)</li>
+        <li><b>prompt()</b> — abre uma caixa de entrada de texto</li>
+    </ul>
+    <p>
+        Na prática, essas caixas são pouco usadas pois têm funcionalidade limitada e aparência não customizável.
+    </p>
+
+    <h3>4.1.3 Usando o Console de Desenvolvimento</h3>
+    <p>
+        O console de desenvolvimento é uma ferramenta essencial para testar e depurar código JavaScript. Para escrever no console, usa-se o objeto <code>console</code>:
+    </p>
+
+    <table>
+        <tr>
+            <th>Método</th>
+            <th>Descrição</th>
+        </tr>
+        <tr>
+            <td>console.log()</td>
+            <td>Imprime uma mensagem normal no console</td>
+        </tr>
+        <tr>
+            <td>console.debug()</td>
+            <td>Imprime uma mensagem de depuração</td>
+        </tr>
+        <tr>
+            <td>console.error()</td>
+            <td>Exibe uma mensagem de erro</td>
+        </tr>
+        <tr>
+            <td>console.info()</td>
+            <td>Exibe uma mensagem informativa</td>
+        </tr>
+        <tr>
+            <td>console.warn()</td>
+            <td>Emite um aviso no console</td>
+        </tr>
+        <tr>
+            <td>console.clear()</td>
+            <td>Limpa todas as mensagens do console</td>
+        </tr>
+    </table>
+
+    <h2>4.2 Variáveis, Constantes, Tipos de Dados e Operadores</h2>
+
+    <h3>4.2.1 Definindo Variáveis</h3>
+    <p>
+        Variáveis são criadas com a palavra-chave <code>let</code>. Podem ser declaradas e inicializadas em etapas separadas ou juntas:
+    </p>
+    <p>
+        let firstName; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// declaração<br>
+        firstName = 'João'; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// inicialização<br>
+        let lastName = 'Silva'; &nbsp;// declaração e inicialização juntas
+    </p>
+
+    <h3>4.2.2 Definindo Constantes</h3>
+    <p>
+        Constantes são declaradas com <code>const</code>. Seu valor é atribuído uma única vez e não pode ser alterado. Por convenção, são escritas em letras maiúsculas:
+    </p>
+    <p>
+        const MAXIMO = 5000;
+    </p>
+
+    <h3>4.2.3 Usando Tipos de Dados</h3>
+    <p>
+        O JavaScript possui seis tipos de dados principais:
+    </p>
+    <ul>
+        <li><b>number</b> — números inteiros e decimais: <code>const n = 42;</code> ou <code>const d = 3.14;</code></li>
+        <li><b>string</b> — sequências de caracteres: <code>const nome = 'Maria';</code> ou <code>const nome = "Maria";</code></li>
+        <li><b>boolean</b> — valores lógicos: <code>const ativo = true;</code> ou <code>const admin = false;</code></li>
+        <li><b>null</b> — ausência intencional de valor</li>
+        <li><b>undefined</b> — variável declarada mas sem valor atribuído</li>
+        <li><b>object</b> — agrupamento de propriedades e métodos</li>
+    </ul>
+    <p>
+        Também existem <b>template strings</b> (com crase <code>`</code>), que permitem usar <code>${variavel}</code> como placeholder diretamente no texto.
+    </p>
+
+    <h3>4.2.4 Usando Operadores</h3>
+    <p>
+        Os principais tipos de operadores disponíveis no JavaScript são:
+    </p>
+    <ul>
+        <li><b>Aritméticos:</b> <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>, <code>**</code>, <code>++</code>, <code>--</code></li>
+        <li><b>Atribuição:</b> <code>=</code></li>
+        <li><b>Concatenação:</b> <code>+</code> (para juntar strings)</li>
+        <li><b>Lógicos:</b> <code>&amp;&amp;</code> (AND), <code>||</code> (OR), <code>!</code> (negação)</li>
+        <li><b>Bit a bit:</b> <code>&amp;</code>, <code>|</code>, <code>^</code>, <code>~</code>, <code>&lt;&lt;</code>, <code>&gt;&gt;</code></li>
+        <li><b>Comparação:</b> <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, <code>==</code>, <code>===</code>, <code>!=</code>, <code>!==</code></li>
+    </ul>
+
+    <h2>4.3 Usando Estruturas de Controle</h2>
+
+    <h3>4.3.1 Condicionais e Ramificações</h3>
+    <p>
+        A instrução <code>if</code> executa um bloco de código somente se uma condição for verdadeira. Com <code>else if</code> e <code>else</code>, é possível criar múltiplos caminhos:
+    </p>
+    <p>
+        if (senhaCurta) {<br>
+        &nbsp;&nbsp;mensagem = 'Senha deve ter ao menos 10 caracteres.';<br>
+        } else if (senhaLonga) {<br>
+        &nbsp;&nbsp;mensagem = 'Senha não pode ter mais de 50 caracteres.';<br>
+        } else {<br>
+        &nbsp;&nbsp;mensagem = 'Senha válida!';<br>
+        }
+    </p>
+    <p>
+        O <code>switch</code> permite testar uma variável contra vários valores possíveis, executando o bloco correspondente ao valor encontrado. O <code>break</code> encerra a execução do switch após cada caso.
+    </p>
+
+    <!-- DEMO INTERATIVA CONDICIONAL -->
+    <div class="demo-box">
+        <h3>🔀 Demo: Validador de Senha</h3>
+        <p>Digite uma senha para testar o condicional if/else if/else:</p>
+        <input type="password" id="senhaInput" placeholder="Digite uma senha...">
+        <button onclick="validarSenha()">Verificar</button>
+        <p id="resultado-senha"></p>
+    </div>
+
+    <h3>4.3.2 Usando Laços de Repetição</h3>
+    <p>
+        Existem três tipos de laços em JavaScript:
+    </p>
+    <ul class="ul_01">
+        <li><b>for (laço de contagem):</b> repete instruções com base em um contador. Possui inicialização, condição e expressão de incremento.</li>
+        <li><b>while (laço controlado pelo início):</b> verifica a condição antes de cada iteração. Pode não executar nenhuma vez.</li>
+        <li><b>do-while (laço controlado pelo fim):</b> verifica a condição após cada iteração. Executa ao menos uma vez.</li>
+    </ul>
+    <p>
+        for (let i = 1; i &lt;= 10; i++) { console.log(i); }
+    </p>
+
+    <h2>4.4 Funções e Tratamento de Erros</h2>
+
+    <h3>4.4.1 Definindo e Chamando Funções</h3>
+    <p>
+        Funções agrupam código em blocos reutilizáveis. Existem três formas principais de defini-las:
+    </p>
+    <ul>
+        <li><b>Declaração de função:</b> <code>function nomeDaFuncao() { ... }</code></li>
+        <li><b>Expressão de função:</b> <code>const fn = function() { ... }</code></li>
+        <li><b>Arrow function:</b> <code>const fn = () =&gt; { ... }</code></li>
+    </ul>
+    <p>
+        Para chamar uma função, basta escrever seu nome seguido de parênteses: <code>nomeDaFuncao();</code>
+    </p>
+
+    <h3>4.4.2 Parâmetros e Valores de Retorno</h3>
+    <p>
+        Funções podem receber valores por meio de parâmetros e retornar resultados com <code>return</code>:
+    </p>
+    <p>
+        function soma(x, y) {<br>
+        &nbsp;&nbsp;let resultado = x + y;<br>
+        &nbsp;&nbsp;return resultado;<br>
+        }<br>
+        const z = soma(5, 6); // z = 11
+    </p>
+
+    <!-- DEMO INTERATIVA FUNÇÃO -->
+    <div class="demo-box">
+        <h3>➕ Demo: Calculadora com Função</h3>
+        <p>Insira dois números para somar usando uma função JavaScript:</p>
+        <input type="number" id="num1" placeholder="Número 1">
+        <input type="number" id="num2" placeholder="Número 2">
+        <button onclick="calcularSoma()">Somar</button>
+        <p id="resultado-soma"></p>
+    </div>
+
+    <h3>4.4.3 Tratamento de Erros</h3>
+    <p>
+        Três tipos de erros podem ocorrer em JavaScript:
+    </p>
+    <ul class="ul_01">
+        <li><b>Erros de sintaxe:</b> violação das regras sintáticas da linguagem (ex.: palavra-chave errada)</li>
+        <li><b>Erros de execução:</b> ocorrem durante a execução, como tentar acessar uma variável inexistente</li>
+        <li><b>Erros lógicos (bugs):</b> causados por lógica incorreta no programa</li>
+    </ul>
+    <p>
+        Para tratar erros de execução, usa-se o bloco <code>try-catch</code>: o código que pode lançar erros fica no bloco <code>try</code>, e a resposta ao erro fica no bloco <code>catch</code>. Erros são lançados com <code>throw new Error('mensagem')</code>.
+    </p>
+
+    <h2>4.5 Objetos e Arrays</h2>
+
+    <h3>4.5.1 Usando Objetos</h3>
+    <p>
+        Objetos agrupam dados relacionados em propriedades e métodos. A forma mais simples de criá-los é a notação literal (object-literal notation), com chaves <code>{}</code>. O acesso às propriedades e métodos é feito com notação de ponto:
+    </p>
+    <p>
+        const livro = {<br>
+        &nbsp;&nbsp;titulo: 'JavaScript – O Guia Completo',<br>
+        &nbsp;&nbsp;preco: 54.99,<br>
+        &nbsp;&nbsp;autor: 'Philip Ackermann',<br>
+        &nbsp;&nbsp;imprimirDescricao() {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;console.log(`${this.autor}: ${this.titulo}`);<br>
+        &nbsp;&nbsp;}<br>
+        }<br>
+        console.log(livro.titulo); // "JavaScript – O Guia Completo"<br>
+        livro.imprimirDescricao(); // "Philip Ackermann: JavaScript – O Guia Completo"
+    </p>
+
+    <h3>4.5.2 Usando Arrays</h3>
+    <p>
+        Arrays são listas de valores, criados com colchetes <code>[]</code>. O índice começa em 0. Novos elementos são adicionados com <code>push()</code>. É comum iterar arrays com laços <code>for</code>.
+    </p>
+
+    <table>
+        <tr>
+            <th>Método</th>
+            <th>Descrição</th>
+        </tr>
+        <tr>
+            <td>push()</td>
+            <td>Insere um elemento no final do array</td>
+        </tr>
+        <tr>
+            <td>pop()</td>
+            <td>Remove o último elemento do array</td>
+        </tr>
+        <tr>
+            <td>shift()</td>
+            <td>Remove o primeiro elemento do array</td>
+        </tr>
+        <tr>
+            <td>forEach()</td>
+            <td>Aplica uma função a cada elemento</td>
+        </tr>
+        <tr>
+            <td>filter()</td>
+            <td>Filtra elementos com base em um critério</td>
+        </tr>
+        <tr>
+            <td>map()</td>
+            <td>Transforma os elementos do array</td>
+        </tr>
+        <tr>
+            <td>sort()</td>
+            <td>Ordena os elementos do array</td>
+        </tr>
+        <tr>
+            <td>join()</td>
+            <td>Converte o array em uma string</td>
+        </tr>
+        <tr>
+            <td>slice()</td>
+            <td>Extrai partes do array</td>
+        </tr>
+        <tr>
+            <td>splice()</td>
+            <td>Adiciona ou remove elementos em qualquer posição</td>
+        </tr>
+    </table>
+
+    <!-- DEMO INTERATIVA ARRAY -->
+    <div class="demo-box">
+        <h3>📋 Demo: Gerenciador de Lista (Array)</h3>
+        <p>Adicione nomes à lista e veja os métodos de array funcionando:</p>
+        <input type="text" id="nomeInput" placeholder="Digite um nome...">
+        <button onclick="adicionarNome()">Adicionar</button>
+        <button onclick="removerUltimo()">Remover Último</button>
+        <button onclick="ordenarLista()">Ordenar</button>
+        <ul id="lista-nomes"></ul>
+    </div>
+
+    <h2>4.6 Resumo e Perspectivas</h2>
+
+    <h3>4.6.1 Pontos-chave</h3>
+    <ul>
+        <li>JavaScript pode ser integrado de várias formas, mas o ideal é manter o código em <b>arquivos separados</b> <code>.js</code>.</li>
+        <li><b>Variáveis</b> são declaradas com <code>let</code> e <b>constantes</b> com <code>const</code>.</li>
+        <li>Os <b>tipos de dados</b> incluem: <code>number</code>, <code>string</code>, <code>boolean</code>, <code>null</code>, <code>undefined</code> e <code>object</code>.</li>
+        <li>Vários tipos de <b>operadores</b> estão disponíveis: aritméticos, lógicos, de comparação, de concatenação e bit a bit.</li>
+        <li>O <b>fluxo de controle</b> é gerido por condicionais (<code>if/else</code>, <code>switch</code>) e laços (<code>for</code>, <code>while</code>, <code>do-while</code>).</li>
+        <li><b>Funções</b> definem partes reutilizáveis do programa, podendo receber argumentos e retornar valores.</li>
+        <li>Erros de execução são tratados com blocos <b><code>try-catch</code></b>.</li>
+        <li><b>Objetos</b> agrupam dados e funcionalidades; <b>Arrays</b> funcionam como listas de valores.</li>
+    </ul>
+
+    <h3>4.6.2 Perspectivas</h3>
+    <p>
+        Este capítulo é uma introdução ao JavaScript. Ao longo do livro, o JavaScript será revisitado com temas mais avançados:
+    </p>
+    <ul>
+        <li><b>DOM (Document Object Model):</b> manipulação dinâmica do HTML via JavaScript (Capítulo 7)</li>
+        <li><b>Node.js:</b> ambiente de execução JavaScript no lado do servidor (Capítulo 14)</li>
+        <li><b>Express:</b> framework web para Node.js (Capítulo 14)</li>
+        <li><b>Web Services com Node.js:</b> implementação de serviços web (Capítulo 16)</li>
+    </ul>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

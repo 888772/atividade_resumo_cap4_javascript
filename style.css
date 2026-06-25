@@ -1,0 +1,255 @@
+/* Estilos básicos - Aprendendo CSS há 3 semanas */
+
+/* Configurações gerais */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    margin: 20px;
+    padding: 0;
+}
+
+/* Títulos */
+h1 {
+    color: #003366;
+    font-size: 28px;
+    border-bottom: 2px solid #003366;
+    padding-bottom: 10px;
+}
+
+h2 {
+    color: #003366;
+    font-size: 22px;
+    margin-top: 30px;
+}
+
+h3 {
+    color: #003366;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+h4 {
+    color: #444;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+/* Parágrafos */
+p {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Links */
+a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Listas */
+ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+.ul_01 {
+    list-style-type: square;
+}
+
+/* Código */
+code {
+    background-color: #e8e8e8;
+    padding: 2px 6px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    border-radius: 3px;
+}
+
+/* Tabelas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    background-color: white;
+}
+
+table th {
+    background-color: #003366;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+table td {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+}
+
+table tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Caixas de demonstração */
+.demo-box {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+.demo-box h3 {
+    margin-top: 0;
+}
+
+/* Botões */
+button {
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin: 5px 5px 5px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #004d99;
+}
+
+.btn-grupo {
+    margin: 10px 0;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="password"],
+input[type="number"] {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    margin: 5px 5px 5px 0;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus {
+    border-color: #0066cc;
+}
+
+/* Console */
+#console-output {
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    padding: 15px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    min-height: 100px;
+    max-height: 250px;
+    overflow-y: auto;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+.console-linha {
+    padding: 3px 0;
+}
+
+/* Mensagens de resultado */
+#resultado-senha,
+#resultado-soma {
+    margin-top: 10px;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+.erro {
+    color: #cc0000;
+    background-color: #ffebee;
+    border: 1px solid #ffcdd2;
+}
+
+.sucesso {
+    color: #008000;
+    background-color: #e8f5e9;
+    border: 1px solid #c8e6c9;
+}
+
+.aviso {
+    color: #e65100;
+    background-color: #fff3e0;
+    border: 1px solid #ffe0b2;
+}
+
+/* Lista de nomes - gerenciador de array */
+#lista-nomes {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+#lista-nomes li {
+    background-color: #f5f5f5;
+    padding: 6px 12px;
+    margin: 3px 0;
+    border-left: 3px solid #0066cc;
+    border-radius: 3px;
+}
+
+/* Rodapé ou informações extras */
+small {
+    color: #666;
+    font-size: 12px;
+}
+
+/* Alinhamento e espaçamento */
+.center {
+    text-align: center;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+/* Responsividade simples */
+@media (max-width: 600px) {
+    body {
+        margin: 10px;
+    }
+    
+    button {
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    input[type="text"],
+    input[type="password"],
+    input[type="number"] {
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    table {
+        font-size: 13px;
+    }
+    
+    table th,
+    table td {
+        padding: 5px 8px;
+    }
+}
